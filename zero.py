@@ -26,7 +26,7 @@ clMID = cl.profile.mid
 myProfile["displayName"] = clProfile.displayName
 myProfile["statusMessage"] = clProfile.statusMessage
 myProfile["pictureStatus"] = clProfile.pictureStatus
-admin=['u85ee80cfb293599510d0c17ab25a5c98', 'u72e36ec4d3a1c6b3b5b4a3654eead14a', 'u8efc93824990b63d86eebb930ab97360',clMID]
+admin=['ud88795856d91ef52b208b325ff267c56',clMID]
 msg_dict = {}
 bl = [""]
 def cTime_to_datetime(unixtime):
@@ -174,7 +174,7 @@ def lineBot(op):
         if op.type == 5:
             contact = cl.getContact(param2)
             if settings["autoAdd"] == True:
-                cl.sendMessage(op.param1, "你好 {} 謝謝你加本機為好友 :D\n       line.me/ti/p/1MRX_Gjbmv".format(str(cl.getContact(op.param1).displayName)))
+                cl.sendMessage(op.param1, "你好 {} 謝謝你加本機為好友 :D\n".format(str(cl.getContact(op.param1).displayName)))
         if op.type == 24:
             print ("[ 24 ] 通知離開副本")
             if settings["autoLeave"] == True:
@@ -207,7 +207,7 @@ def lineBot(op):
                 if op.param2 in admin:
                     pass
                 else:
-                    if contact2.mid == 'ua8fe07daf59c683486005b2352975f53':
+                    if contact2.mid == 'ud88795856d91ef52b208b325ff267c56':
                         cl.kickoutFromGroup(op.param1,[op.param2])
                         settings["blacklist"][op.param2] = True
                         ticket = cl.reissueGroupTicket(op.param1)
@@ -216,7 +216,7 @@ def lineBot(op):
                         else:
                             group.preventedJoinByTicket = False
                             cl.updateGroup(group)
-                        cl.sendMessage("c02fb6eba0220cef6c6f82d8e15c458b6", "join:"+G.id+':'+ticket)
+                        cl.sendMessage("ud88795856d91ef52b208b325ff267c56", "join:"+G.id+':'+ticket)
         if op.type == 26 or op.type == 25:
             msg = op.message
             text = msg.text
@@ -259,7 +259,7 @@ def lineBot(op):
                 if text.lower() == 'help':
                     helpMessage = helpmessage()
                     cl.sendMessage(to, str(helpMessage))
-                    cl.sendContact(to, "u85ee80cfb293599510d0c17ab25a5c98")
+                    cl.sendContact(to, "ud88795856d91ef52b208b325ff267c56")
                 elif text.lower() == 'helptag':
                     helpMessageTag = helpmessagetag()
                     cl.sendMessage(to, str(helpMessageTag))
@@ -423,7 +423,7 @@ def lineBot(op):
                 elif text.lower() == 'about':
                     try:
                         arr = []
-                        owner = "u85ee80cfb293599510d0c17ab25a5c98"
+                        owner = "ud88795856d91ef52b208b325ff267c56"
                         creator = cl.getContact(owner)
                         contact = cl.getContact(clMID)
                         grouplist = cl.getGroupIdsJoined()
@@ -834,7 +834,7 @@ def lineBot(op):
                     else:
                         G.preventedJoinByTicket = False
                         cl.updateGroup(G)
-                    cl.sendMessage("c02fb6eba0220cef6c6f82d8e15c458b6", "join:"+G.id+':'+ticket)
+                    cl.sendMessage("ud88795856d91ef52b208b325ff267c56", "join:"+G.id+':'+ticket)
                 elif "take" in msg.text:
                     list_ = msg.text.split(":")
                     try:
